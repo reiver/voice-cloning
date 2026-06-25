@@ -43,49 +43,52 @@
 				<details>
 					<summary>notes:</summary>
 					<ul>
-						<p>
-							<strong>transfer learning:</strong>
-						</p>
-						<p>
-							A model trained to recognize speakers can also learn a powerful representation of speaker identity.
-							That representation can be reused to make a <abbr title="text-to-speech">TTS</abbr> system speak in the voice of people it has never seen before.
-						</p>
-					</ul>
-					<ul>
-						Before this work, most multi-speaker <abbr title="text-to-speech">TTS</abbr> systems tended to have the following limitation:
-						<ul>
-							<li>
-								They could only synthesize speech for speakers that were part of their training.
-							</li>
-							<li>
-								To make it so the model could synthesize speech for another speaker, you often needed a lot of transcribed speech.
-							</li>
-							<li>
-								Training a new voice was expensive.
-							</li>
-						</ul>
-					</ul>
-					<ul>
-						<p>
-							<strong>zero-shot voice cloning:</strong>
-						</p>
-						<p>
-							Now, with only a few seconds of audio from a previously unseen speaker, the model is able to generate arbitrary text in that speaker's voice.
-						</p>
-					</ul>
-					<ul>
-						<p>
-							The following is the structure of the model:
-						</p>
-						<figure>
-							<pre>
+						<li>
+							<p>
+								<strong>transfer learning:</strong>
+							</p>
+							<p>
+								A model trained to recognize speakers can also learn a powerful representation of speaker identity.
+								That representation can be reused to make a <abbr title="text-to-speech">TTS</abbr> system speak in the voice of people it has never seen before.
+							</p>
+						</li>
+						<li>
+							<p>
+								Before this work, most multi-speaker <abbr title="text-to-speech">TTS</abbr> systems tended to have the following limitation:
+							</p>
+							<ul>
+								<li>
+									They could only synthesize speech for speakers that were part of their training.
+								</li>
+								<li>
+									To make it so the model could synthesize speech for another speaker, you often needed a lot of transcribed speech.
+								</li>
+								<li>
+									Training a new voice was expensive.
+								</li>
+							</ul>
+						</li>
+						<li>
+							<p>
+								<strong>zero-shot voice cloning:</strong>
+							</p>
+							<p>
+								Now, with only a few seconds of audio from a previously unseen speaker, the model is able to generate arbitrary text in that speaker's voice.
+							</p>
+						</li>
+						<li>
+							<p>
+								The following is the structure of the model:
+							</p>
+							<figure>
+								<pre>
 Reference Audio
        ↓
 Speaker Encoder
        ↓
-Speaker Embedding (d-vector)
+<a href="/speaker-embedding/">Speaker Embedding</a> (d-vector)
        ↓
-Text + Embedding
+Text + Speaker Embedding (d-vector)
        ↓
 Tacotron 2 Synthesizer
        ↓
@@ -93,15 +96,35 @@ Tacotron 2 Synthesizer
        ↓
 WaveNet Vocoder
        ↓
-Speech Waveform
-							</pre>
-						</figure>
-						<p>
-							Each component is trained separately.
-						</p>
-						<p>
-							Three separate <strong>artificial neural networks</strong> are combied.
-						</p>
+Speech Waveform / Audio
+								</pre>
+							</figure>
+							<p>
+								Each component is trained separately.
+							</p>
+							<p>
+								Three separate <strong>artificial neural networks</strong> are combied.
+							</p>
+						</li>
+						<li>
+							<p>
+								This paper showed that:
+							</p>
+							<ul>
+								<li>
+									Speaker identity can be learned separately from <abbr title="text-to-speech">TTS</abbr>.
+								</li>
+								<li>
+									Speaker verification embeddings transfer well to speech synthesis.
+								</li>
+								<li>
+									Zero-shot voice cloning is practical.
+								</li>
+								<li>
+									Large speaker datasets are more valuable than previously thought.
+								</li>
+							</ul>
+						</li>
 					</ul>
 				</details>
 			</li>
@@ -123,7 +146,7 @@ Speech Waveform
 				<a href="/mel-spectrogram/">Mel Spectrogram</a>
 			</li>
 			<li>
-				<a href="/speaker-embedding/">Speaker-Embedding</a>
+				<a href="/speaker-embedding/">Speaker Embedding</a>
 			</li>
 			<li>
 				<a href="/speaker-encoder/">Speaker Encoder</a>
