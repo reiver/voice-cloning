@@ -109,6 +109,38 @@ Speech Waveform / Audio
 						</li>
 						<li>
 							<p>
+								An interesting result:
+							</p>
+							<p>
+								A speaker encoder trained on many speakers seems to generalize much better than a speaker encoder trained only on (a much lower number of) <abbr title="text-to-speech">TTS</abbr> speakers.
+							</p>
+							<p>
+								I.e., better speaker representations lead to better voice cloning.
+							</p>
+							<p>
+								This is the same or similar philosophy taken by later papers:
+								BERT for NLP,
+								CLIP for vision-language,
+								self-supervised speech models.
+							</p>
+						</li>
+						<li>
+							<p>
+								An interesting experiments:
+							</p>
+							<p>
+								The authors sampled random points from the embedding space, and synthesized speech from them.
+								The result sounded like plausible new speakers rather than noise.
+							</p>
+							<p>
+								This suggests the embedding space seems to have learned a meaningful structure.
+							</p>
+							<p>
+								This also suggests that the model isn't just looking up known speakers.
+							</p>
+						</li>
+						<li>
+							<p>
 								This paper showed that:
 							</p>
 							<ul>
