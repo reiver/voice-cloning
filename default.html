@@ -73,6 +73,36 @@
 							Now, with only a few seconds of audio from a previously unseen speaker, the model is able to generate arbitrary text in that speaker's voice.
 						</p>
 					</ul>
+					<ul>
+						<p>
+							The following is the structure of the model:
+						</p>
+						<figure>
+							<pre>
+Reference Audio
+       ↓
+Speaker Encoder
+       ↓
+Speaker Embedding (d-vector)
+       ↓
+Text + Embedding
+       ↓
+Tacotron 2 Synthesizer
+       ↓
+<a href="/mel-spectrogram/">Mel Spectrogram</a>
+       ↓
+WaveNet Vocoder
+       ↓
+Speech Waveform
+							</pre>
+						</figure>
+						<p>
+							Each component is trained separately.
+						</p>
+						<p>
+							Three separate <strong>artificial neural networks</strong> are combied.
+						</p>
+					</ul>
 				</details>
 			</li>
 			<li>
